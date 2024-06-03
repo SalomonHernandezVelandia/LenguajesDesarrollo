@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Cardinal;
+    src: url(../fonts/Cardinal-Alternate.ttf);
+}
+@font-face {
+    font-family: Lovelyn1;
+    src: url(../fonts/Lovelyn1.otf);
+}
+
+body {
+    background-image: url(../imag/FondoAmarillo.jpg);
+    background-size: cover; /* Ajusta la imagen para que cubra todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Hace que la imagen de fondo permanezca fija al hacer scroll */
+    height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
+    font-family: 'Lovelyn1', 'Brush Script MT', 'Cardinal', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body::before {
+    content: '';     /* para que el pseudo-elemento se renderice en el DOM*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Ajusta el color y la opacidad según tus necesidades */
+    z-index: -1; /* Asegura que el overlay quede detrás del contenido del body */
+}
+
+header {
+    height: 50%;
+    width: 100%;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.target {
+    background: rgba(0, 0, 0, 0.6); /* Negro con 70% de opacidad */
+    border-radius: 20px;
+    height: 100%;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    box-shadow: 0 0 5px orange, 0 0 10px orange, 0 0 20px orange;
+}
+
+.target__foto {
+    width: 10rem; 
+    height: 10rem; 
+    border-radius: 50%; 
+    background-image: url('../imag/Yo100.jpg'); 
+    background-size: cover;        /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center;   /* Centra la imagen en el contenedor */
+}
+
+.target__nombre {
+    color: white;
+    margin: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.target__profesion {
+    color: white;
+    margin: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.target__info {
+    color: white;
+    font-size: 0.8rem;
+}
+
+/* CONTENIDO PRINCIPAL */
+/* .contenido {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 3rem 3rem 0rem;
+} */
+
+.contenido {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 2rem 2rem 0rem;
+}
+
+.contenido > * {
+    transition: opacity 0.8s ease; /* Ajusta la duración y la función de temporización según tus necesidades */
+}
+
+.contenido:hover > :not(:hover) {
+    opacity: 0.4;
+}
+
+.contenido__lenguajes {
+    padding: 20px;
+    text-align: center;
+    margin: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.recuadro{
+    text-align: center;
+}
+
+.recuadro:nth-child(6){
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.iconos {
+    width: 7rem;
+    height: 7rem;
+    transition: width 0.8s ease, height 0.8s ease, filter 0.8s ease;
+}
+
+.iconos:hover {
+    width: 13rem;
+    height: 13rem;
+    filter: drop-shadow(1px 1px 40px orange);
+}
+
+
+.iconos__sass{
+    opacity: 0;
+    /* transition: opacity 0.4s ease; Ajusta la duración y la función de temporización según tus necesidades */
+}
+
+
+
+
+
+
+@media (max-width: 1250px) {
+    header {
+        width: 100%;
+        padding-top: 3rem;
+    }
+    .contenido {
+        width: 100%;
+    }
+    .contenido__lenguajes {
+        padding: 10px;
+        margin: 1px;
+        font-size: 0.7rem;
+    }
+    .iconos {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+
+
+@media (max-width: 788px) {
+    header {
+        width: 80%;
+        padding-top: 3rem;
+    }
+
+    .contenido {
+        width: 100%;
+    }
+    .contenido__lenguajes {
+        padding: 10px;
+        margin: 1px;
+        font-size: 0.7rem;
+    }
+    .iconos {
+        width: 5rem;
+        height: 5rem;
+    }
+    .iconos:hover {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+
+
+@media (max-width: 540px) {
+    header {
+        width: 80%;
+        padding-top: 1rem;
+    }
+    .target__foto {
+        width: 8rem; 
+        height: 8rem; 
+    }
+    .target__nombre {
+        margin: 0.3rem;
+        font-size: 1.1rem;
+    }
+    .target__profesion {
+        margin: 0.3rem;
+        font-size: 0.9rem;
+    }
+    .target__info {
+        font-size: 0.7rem;
+    }
+
+    .contenido {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
+    .contenido__lenguajes {
+        padding: 10px;
+        margin: 1px;
+        font-size: 0.6rem;
+    }
+    .iconos {
+        width: 4rem;
+        height: 4rem;
+    }
+}
